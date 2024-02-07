@@ -24,6 +24,15 @@ Instrucciones de Uso
 
     Esto iniciará el servidor de desarrollo de Next.js y podrás acceder a la aplicación en `http://localhost:3000`.
 
+### Database (Docker)
+
+1. Antes de iniciar el backend, asegurese de tener instalado Docker en su equipo, si no lo tiene instalado puede descargarlo desde el siguiente enlace: https://www.docker.com/products/docker-desktop posteriormente posicionese en la carpeta principal 'cd guarderia-danne' y ejecute el siguiente comando para iniciar la base de datos en un contenedor de Docker:
+
+    `docker-compose up`
+
+    Esto iniciará el contenedor de Docker con la base de datos de postgres y podrá acceder a la base de datos en `http://localhost:5432` y asignar las variables de entorno correspondientes 
+    al backend.
+
 ### Backend (Strapi)
 
 1.  Instalación de Dependencias: Desde la raíz del proyecto, navega a la carpeta `backend` y ejecuta el siguiente comando para instalar las dependencias:
@@ -37,3 +46,4 @@ Instrucciones de Uso
     `npm run develop or yarn develop`
 
     Esto iniciará el servidor de Strapi y podrás acceder al panel de administración en `http://localhost:1337/admin`.
+
