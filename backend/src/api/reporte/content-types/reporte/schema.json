@@ -1,0 +1,90 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reportes",
+  "info": {
+    "singularName": "reporte",
+    "pluralName": "reportes",
+    "displayName": "Reporte",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hoy_estuve": {
+      "type": "customField",
+      "options": [
+        "Activo",
+        "Alegre",
+        "Desanimado"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "reporte_para": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::hijo.hijo",
+      "inversedBy": "reportes"
+    },
+    "en_hora_de_trabajo_me_mostre": {
+      "type": "customField",
+      "options": [
+        "Concentrado",
+        "Creativo",
+        "Curioso",
+        "Desinteresado",
+        "Distraído",
+        "Interesado",
+        "Motivado",
+        "Participativo",
+        "Resistente"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "comentario_extra_hora_trabajo": {
+      "type": "text"
+    },
+    "hoy_comi": {
+      "type": "customField",
+      "options": [
+        "Todo",
+        "Una parte",
+        "Nada"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "comentario_extra_hoy_comi": {
+      "type": "text"
+    },
+    "en_el_sanitario": {
+      "type": "customField",
+      "options": [
+        "Orine",
+        "Evacue",
+        "Nada"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "comentario_extra_sanitario": {
+      "type": "text"
+    },
+    "se_necesita": {
+      "type": "customField",
+      "options": [
+        "Pañales",
+        "Muda de ropa",
+        "Leche",
+        "Toallitas humeda"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "comentario_extra_necesita": {
+      "type": "text"
+    }
+  }
+}
