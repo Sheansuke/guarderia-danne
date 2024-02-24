@@ -362,37 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiReviewReview extends Schema.CollectionType {
-  collectionName: 'reviews';
-  info: {
-    singularName: 'review';
-    pluralName: 'reviews';
-    displayName: 'Review';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    description: Attribute.Text;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::review.review',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::review.review',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -614,6 +583,53 @@ export interface PluginContentReleasesReleaseAction
   };
 }
 
+export interface PluginI18NLocale extends Schema.CollectionType {
+  collectionName: 'i18n_locale';
+  info: {
+    singularName: 'locale';
+    pluralName: 'locales';
+    collectionName: 'locales';
+    displayName: 'Locale';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    'content-manager': {
+      visible: false;
+    };
+    'content-type-builder': {
+      visible: false;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    code: Attribute.String & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'plugin::i18n.locale',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUsersPermissionsPermission
   extends Schema.CollectionType {
   collectionName: 'up_permissions';
@@ -765,46 +781,205 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
-export interface PluginI18NLocale extends Schema.CollectionType {
-  collectionName: 'i18n_locale';
+export interface ApiHijoHijo extends Schema.CollectionType {
+  collectionName: 'hijos';
   info: {
-    singularName: 'locale';
-    pluralName: 'locales';
-    collectionName: 'locales';
-    displayName: 'Locale';
+    singularName: 'hijo';
+    pluralName: 'hijos';
+    displayName: 'Hijo';
     description: '';
   };
   options: {
-    draftAndPublish: false;
-  };
-  pluginOptions: {
-    'content-manager': {
-      visible: false;
-    };
-    'content-type-builder': {
-      visible: false;
-    };
+    draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 50;
-        },
-        number
+    nombre_completo: Attribute.String & Attribute.Required;
+    es_alergico: Attribute.Enumeration<['SI', 'NO']> & Attribute.Required;
+    fecha_nacimiento: Attribute.Date & Attribute.Required;
+    padece: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Sarampi\u00F3n',
+          'Dolor de Cabeza',
+          'Varicela',
+          'Dolor de O\u00EDdos',
+          'Paperas',
+          'Diabetes',
+          'Meningitis',
+          'Dolor de Garganta',
+          'Hepatitis',
+          'Crisis Asm\u00E1tica',
+          'Nada'
+        ]
       >;
-    code: Attribute.String & Attribute.Unique;
+    reportes: Attribute.Relation<
+      'api::hijo.hijo',
+      'oneToMany',
+      'api::reporte.reporte'
+    >;
+    hora_entrada: Attribute.Time;
+    hora_salida: Attribute.Time;
+    apodo: Attribute.String;
+    nacionalidad: Attribute.String;
+    edad: Attribute.Integer & Attribute.Required;
+    tipo_sangre: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
+      >;
+    telefono_residencia: Attribute.String;
+    tutor: Attribute.String & Attribute.Required;
+    vive_con_padres: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::multi-select.multi-select', ['SI', 'NO']>;
+    numero_contacto: Attribute.String;
+    persona_emergencia: Attribute.String;
+    parentesco: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['MADRE', 'PADRE', 'NINGUNO']
+      >;
+    padece_enfermedad: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::multi-select.multi-select', ['SI', 'NO']>;
+    enfermedad_padecida: Attribute.Text;
+    medicamentos_requeridos: Attribute.Text;
+    vacunas_al_dia: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::multi-select.multi-select', ['SI', 'NO']>;
+    tiene_seguro_medico: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::multi-select.multi-select', ['SI', 'NO']>;
+    pediatra: Attribute.String;
+    contacto_pediatra: Attribute.String;
+    frecuentemente_se_siente: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Triste',
+          'Llora con Frecuencia',
+          'Din\u00E1mico',
+          'Se Enoja Frecuentemente',
+          'T\u00EDmido',
+          'Se Encierra en S\u00ED',
+          'Cuando se Enoja es Agresivo',
+          'Trata de Llamar la Atenci\u00F3n',
+          'Es Posesivo',
+          'Es Independiente',
+          'Nada'
+        ]
+      >;
+    nombre_de_padre: Attribute.String;
+    telefono_celular_padre: Attribute.String;
+    telefono_trabajo_padre: Attribute.String;
+    correo_electronico_padre: Attribute.Email & Attribute.Unique;
+    direccion_padre: Attribute.Text;
+    sector_padre: Attribute.String;
+    nombre_de_madre: Attribute.String;
+    telefono_celular_madre: Attribute.String;
+    telefono_trabajo_madre: Attribute.String;
+    correo_electronico_madre: Attribute.Email & Attribute.Unique;
+    direccion_madre: Attribute.String;
+    sector_madre: Attribute.String;
+    codigo_consulta: Attribute.UID<
+      undefined,
+      undefined,
+      {
+        'uuid-format': '^[a-zA-Z0-9]{11}$';
+        'disable-regenerate': true;
+      }
+    > &
+      Attribute.CustomField<
+        'plugin::strapi-advanced-uuid.uuid',
+        {
+          'uuid-format': '^[a-zA-Z0-9]{11}$';
+          'disable-regenerate': true;
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::hijo.hijo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::hijo.hijo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReporteReporte extends Schema.CollectionType {
+  collectionName: 'reportes';
+  info: {
+    singularName: 'reporte';
+    pluralName: 'reportes';
+    displayName: 'Reporte';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    hoy_estuve: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['Activo', 'Alegre', 'Desanimado']
+      >;
+    reporte_para: Attribute.Relation<
+      'api::reporte.reporte',
+      'manyToOne',
+      'api::hijo.hijo'
+    >;
+    en_hora_de_trabajo_me_mostre: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'Concentrado',
+          'Creativo',
+          'Curioso',
+          'Desinteresado',
+          'Distra\u00EDdo',
+          'Interesado',
+          'Motivado',
+          'Participativo',
+          'Resistente'
+        ]
+      >;
+    comentario_extra_hora_trabajo: Attribute.Text;
+    hoy_comi: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['Todo', 'Una parte', 'Nada']
+      >;
+    comentario_extra_hoy_comi: Attribute.Text;
+    en_el_sanitario: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['Orine', 'Evacue', 'Nada']
+      >;
+    comentario_extra_sanitario: Attribute.Text;
+    se_necesita: Attribute.JSON &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['Pa\u00F1ales', 'Muda de ropa', 'Leche', 'Toallitas humeda']
+      >;
+    comentario_extra_necesita: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'api::reporte.reporte',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'plugin::i18n.locale',
+      'api::reporte.reporte',
       'oneToOne',
       'admin::user'
     > &
@@ -822,15 +997,16 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::review.review': ApiReviewReview;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
+      'plugin::i18n.locale': PluginI18NLocale;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
-      'plugin::i18n.locale': PluginI18NLocale;
+      'api::hijo.hijo': ApiHijoHijo;
+      'api::reporte.reporte': ApiReporteReporte;
     }
   }
 }

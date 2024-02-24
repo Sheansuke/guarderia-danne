@@ -1,0 +1,221 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hijos",
+  "info": {
+    "singularName": "hijo",
+    "pluralName": "hijos",
+    "displayName": "Hijo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre_completo": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "es_alergico": {
+      "type": "enumeration",
+      "enum": [
+        "SI",
+        "NO"
+      ],
+      "required": true
+    },
+    "fecha_nacimiento": {
+      "type": "date",
+      "required": true
+    },
+    "padece": {
+      "type": "customField",
+      "options": [
+        "Sarampión",
+        "Dolor de Cabeza",
+        "Varicela",
+        "Dolor de Oídos",
+        "Paperas",
+        "Diabetes",
+        "Meningitis",
+        "Dolor de Garganta",
+        "Hepatitis",
+        "Crisis Asmática",
+        "Nada"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "reportes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::reporte.reporte",
+      "mappedBy": "reporte_para"
+    },
+    "hora_entrada": {
+      "type": "time"
+    },
+    "hora_salida": {
+      "type": "time"
+    },
+    "apodo": {
+      "type": "string"
+    },
+    "nacionalidad": {
+      "type": "string"
+    },
+    "edad": {
+      "type": "integer",
+      "required": true
+    },
+    "tipo_sangre": {
+      "type": "customField",
+      "options": [
+        "A+",
+        "A-",
+        "B+",
+        "B-",
+        "AB+",
+        "AB-",
+        "O+",
+        "O-"
+      ],
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "telefono_residencia": {
+      "type": "string"
+    },
+    "tutor": {
+      "type": "string",
+      "required": true
+    },
+    "vive_con_padres": {
+      "type": "customField",
+      "options": [
+        "SI",
+        "NO"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "numero_contacto": {
+      "type": "string"
+    },
+    "persona_emergencia": {
+      "type": "string"
+    },
+    "parentesco": {
+      "type": "customField",
+      "options": [
+        "MADRE",
+        "PADRE",
+        "NINGUNO"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "padece_enfermedad": {
+      "type": "customField",
+      "options": [
+        "SI",
+        "NO"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "enfermedad_padecida": {
+      "type": "text"
+    },
+    "medicamentos_requeridos": {
+      "type": "text"
+    },
+    "vacunas_al_dia": {
+      "type": "customField",
+      "options": [
+        "SI",
+        "NO"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "tiene_seguro_medico": {
+      "type": "customField",
+      "options": [
+        "SI",
+        "NO"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "pediatra": {
+      "type": "string"
+    },
+    "contacto_pediatra": {
+      "type": "string"
+    },
+    "frecuentemente_se_siente": {
+      "type": "customField",
+      "options": [
+        "Triste",
+        "Llora con Frecuencia",
+        "Dinámico",
+        "Se Enoja Frecuentemente",
+        "Tímido",
+        "Se Encierra en Sí",
+        "Cuando se Enoja es Agresivo",
+        "Trata de Llamar la Atención",
+        "Es Posesivo",
+        "Es Independiente",
+        "Nada"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
+    },
+    "nombre_de_padre": {
+      "type": "string"
+    },
+    "telefono_celular_padre": {
+      "type": "string"
+    },
+    "telefono_trabajo_padre": {
+      "type": "string"
+    },
+    "correo_electronico_padre": {
+      "type": "email",
+      "unique": true
+    },
+    "direccion_padre": {
+      "type": "text"
+    },
+    "sector_padre": {
+      "type": "string"
+    },
+    "nombre_de_madre": {
+      "type": "string"
+    },
+    "telefono_celular_madre": {
+      "type": "string"
+    },
+    "telefono_trabajo_madre": {
+      "type": "string"
+    },
+    "correo_electronico_madre": {
+      "type": "email",
+      "unique": true
+    },
+    "direccion_madre": {
+      "type": "string"
+    },
+    "sector_madre": {
+      "type": "string"
+    },
+    "codigo_consulta": {
+      "type": "customField",
+      "options": {
+        "uuid-format": "^[a-zA-Z0-9]{11}$",
+        "disable-regenerate": true
+      },
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    }
+  }
+}
