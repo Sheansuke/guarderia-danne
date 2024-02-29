@@ -31,5 +31,5 @@ jobs:
         working-directory: ./backend
 
       - name: Deploy Sanity Studio
-        run: npx sanity deploy --token ${{ secrets.SANITY_TOKEN }} --dataset ${{ secrets.SANITY_ENVIRONMENT }} --yes
+        run:  sanity deploy --token ${{ secrets.SANITY_TOKEN }} --dataset ${{ secrets.SANITY_ENVIRONMENT }} --yes
         working-directory: ./backend
