@@ -8,6 +8,7 @@
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
+    "deploy:dev": "sanity deploy --dataset development",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy"
   },
