@@ -9,6 +9,9 @@ jobs:
     deploy:
       runs-on: ubuntu-latest
       steps:
+        - name: Change directory to backend
+          run: cd backend
+
         - name: Checkout
           uses: actions/checkout@v2
 
