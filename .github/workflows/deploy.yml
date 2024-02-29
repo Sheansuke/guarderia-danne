@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -21,18 +20,20 @@ jobs:
 
       - name: Change directory to backend
         run: cd backend
+        working-directory: ./backend
 
       - name: Install Sanity CLI
         run: npm install -g @sanity/cli
-
-      - name: Change directory to backend
-        run: cd backend
+        working-directory: ./backend
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./backend
 
       - name: Build Sanity Studio
         run: npm run build
+        working-directory: ./backend
 
       - name: Deploy Sanity Studio
         run: npx sanity deploy --token ${{ secrets.SANITY_TOKEN }} --dataset ${{ secrets.SANITY_ENVIRONMENT }} --yes
+        working-directory: ./backend
