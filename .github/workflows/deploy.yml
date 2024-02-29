@@ -31,7 +31,7 @@ jobs:
         working-directory: ./backend
 
       - name: Login to Sanity
-        run: sanity login --token ${{ secrets.SANITY_AUTH_TOKEN }}
+        run: SANITY_AUTH_TOKEN=${{ secrets.SANITY_AUTH_TOKEN }} sanity login --token 
         working-directory: ./backend
 
       - name: Deploy Sanity Studio
