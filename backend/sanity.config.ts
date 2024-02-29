@@ -10,7 +10,7 @@ export default defineConfig({
   title: 'Guarderia Danne',
 
   projectId: '9k7dl08d',
-  dataset: process.env.SANITY_ENVIROMENT || 'development',
+  dataset: 'production',
 
   plugins: [structureTool(), visionTool(),esESLocale()],
 
