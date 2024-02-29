@@ -27,9 +27,9 @@ jobs:
         working-directory: ./backend
 
       - name: Build Sanity Studio
-        run: npm run build
+        run: SANITY_ENVIROMENT=production npm run build
         working-directory: ./backend
 
       - name: Deploy Sanity Studio
-        run:  SANITY_AUTH_TOKEN=${{ secrets.SANITY_AUTH_TOKEN }} npx sanity deploy --dataset production --yes
+        run:  SANITY_AUTH_TOKEN=${{ secrets.SANITY_AUTH_TOKEN }} SANITY_ENVIROMENT=production npx sanity deploy --dataset production --yes
         working-directory: ./backend
