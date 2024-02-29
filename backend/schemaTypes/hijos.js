@@ -1,0 +1,343 @@
+import short from "short-uuid"
+
+
+export default {
+  name: 'hijos',
+  type: 'document',
+  title: 'Niños',
+  preview: {
+    select: {
+      title: 'nombre_completo',
+      subtitle: 'apodo'
+    },
+  },
+  fields: [
+    {
+      name: 'nombre_completo',
+      title: 'Nombre Completo',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'codigo_consulta',
+      title: 'Codigo De Consulta Del Padre',
+      type: 'string', 
+      readOnly: true,
+      initialValue: () => `F${short.generate()}`,
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'horario_entrada',
+      title: 'Horario de Entrada',
+      type: 'string', 
+      options: {
+        list: [
+          {title: '7:00 AM', value: '7:00 AM'},
+          {title: '7:30 AM', value: '7:30 AM'},
+          {title: '8:00 AM', value: '8:00 AM'},
+          {title: '8:30 AM', value: '8:30 AM'},
+          {title: '9:00 AM', value: '9:00 AM'},
+          {title: '9:30 AM', value: '9:30 AM'},
+          {title: '10:00 AM', value: '10:00 AM'},
+          {title: '10:30 AM', value: '10:30 AM'},
+          {title: '11:00 AM', value: '11:00 AM'},
+          {title: '11:30 AM', value: '11:30 AM'},
+          {title: '12:00 PM', value: '12:00 PM'},
+          {title: '12:30 PM', value: '12:30 PM'},
+          {title: '1:00 PM', value: '1:00 PM'},
+          {title: '1:30 PM', value: '1:30 PM'},
+          {title: '2:00 PM', value: '2:00 PM'},
+          {title: '2:30 PM', value: '2:30 PM'},
+          {title: '3:00 PM', value: '3:00 PM'},
+          {title: '3:30 PM', value: '3:30 PM'},
+          {title: '4:00 PM', value: '4:00 PM'},
+          {title: '4:30 PM', value: '4:30 PM'},
+          {title: '5:00 PM', value: '5:00 PM'},
+          {title: '5:30 PM', value: '5:30 PM'},
+          {title: '6:00 PM', value: '6:00 PM'},
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'horario_salida',
+      title: 'Horario de Salida',
+      type: 'string', 
+      options: {
+        list: [
+          {title: '7:00 AM', value: '7:00 AM'},
+          {title: '7:30 AM', value: '7:30 AM'},
+          {title: '8:00 AM', value: '8:00 AM'},
+          {title: '8:30 AM', value: '8:30 AM'},
+          {title: '9:00 AM', value: '9:00 AM'},
+          {title: '9:30 AM', value: '9:30 AM'},
+          {title: '10:00 AM', value: '10:00 AM'},
+          {title: '10:30 AM', value: '10:30 AM'},
+          {title: '11:00 AM', value: '11:00 AM'},
+          {title: '11:30 AM', value: '11:30 AM'},
+          {title: '12:00 PM', value: '12:00 PM'},
+          {title: '12:30 PM', value: '12:30 PM'},
+          {title: '1:00 PM', value: '1:00 PM'},
+          {title: '1:30 PM', value: '1:30 PM'},
+          {title: '2:00 PM', value: '2:00 PM'},
+          {title: '2:30 PM', value: '2:30 PM'},
+          {title: '3:00 PM', value: '3:00 PM'},
+          {title: '3:30 PM', value: '3:30 PM'},
+          {title: '4:00 PM', value: '4:00 PM'},
+          {title: '4:30 PM', value: '4:30 PM'},
+          {title: '5:00 PM', value: '5:00 PM'},
+          {title: '5:30 PM', value: '5:30 PM'},
+          {title: '6:00 PM', value: '6:00 PM'},
+        ],
+      },
+      validation: (Rule) => Rule.required(),
+    },
+
+    {
+      name: 'apodo',
+      title: 'Apodo',
+      type: 'string',
+    },
+    {
+      name: 'fecha_nacimiento',
+      title: 'Fecha de Nacimiento',
+      type: 'date', 
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'nacionalidad',
+      title: 'Nacionalidad',
+      type: 'string',
+    },
+    {
+      name: 'edad',
+      title: 'Edad',
+      type: 'number',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'sangre',
+      title: 'Tipo de Sangre',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'A+', value: 'A+'},
+          {title: 'A-', value: 'A-'},
+          {title: 'B+', value: 'B+'},
+          {title: 'B-', value: 'B-'},
+          {title: 'AB+', value: 'AB+'},
+          {title: 'AB-', value: 'AB-'},
+          {title: 'O+', value: 'O+'},
+          {title: 'O-', value: 'O-'},
+          {title: 'Desconocido', value: 'Desconocido'},
+        ],
+      },
+    },
+    {
+      name: 'telefono_residencia',
+      title: 'Teléfono de Residencia',
+      type: 'string',
+    },
+    {
+      name: 'tutor',
+      title: 'Tutor',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'vive_con_padres',
+      title: 'Vive con Padres',
+      type: 'string',
+      options: {
+        list: ['SI', 'NO'],
+      },
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'numero_contacto',
+      title: 'Número de Contacto',
+      type: 'string',
+    },
+    {
+      name: 'persona_emergencia',
+      title: 'Persona de Emergencia',
+      type: 'string',
+    },
+    {
+      name: 'parentesco',
+      title: 'Parentesco',
+      type: 'array',
+      validation: (Rule) => Rule.required(),
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          'Mama',
+          'Papa',
+          'Ninguno'
+        ],
+      },
+    },
+    {
+      name: 'padece_enfermedad',
+      title: 'Padece Enfermedad',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: ['SI', 'NO'],
+      },
+    },
+    {
+      name: 'enfermedad_padecida',
+      title: 'Enfermedad Padecida',
+      type: 'text',
+    },
+    {
+      name: 'medicamentos_requeridos',
+      title: 'Medicamentos Requeridos',
+      type: 'text',
+    },
+    {
+      name: 'es_alergico',
+      title: 'Es Alérgico',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: ['SI', 'NO'],
+      },
+    },
+    {
+      name: 'vacunas_al_dia',
+      title: 'Vacunas al Día',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: ['SI', 'NO'],
+      },
+    },
+    {
+      name: 'tiene_seguro_medico',
+      title: 'Tiene Seguro Médico',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+      options: {
+        list: ['SI', 'NO'],
+      },
+    },
+    {
+      name: 'padece',
+      title: 'Padece',
+      type: 'array',
+      validation: (Rule) => Rule.required(),
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          'Sarampión',
+          'Dolor de Cabeza',
+          'Varicela',
+          'Dolor de Oídos',
+          'Paperas',
+          'Diabetes',
+          'Meningitis',
+          'Dolor de Garganta',
+          'Hepatitis',
+          'Crisis Asmática',
+          'Sin Especificar'
+        ],
+      },
+    },
+    {
+      name: 'pediatra',
+      title: 'Pediatra',
+      type: 'string',
+    },
+    {
+      name: 'contacto_pediatra',
+      title: 'Contacto del Pediatra',
+      type: 'string',
+    },
+    {
+      name: 'frecuentemente_se_siente',
+      title: 'Frecuentemente se Siente',
+      type: 'array',
+      validation: (Rule) => Rule.required(),
+      of: [{type: 'string'}],
+      options: {
+        list: [
+          'Triste',
+          'Llora con Frecuencia',
+          'Dinámico',
+          'Se Enoja Frecuentemente',
+          'Tímido',
+          'Se Encierra en Sí',
+          'Cuando se Enoja es Agresivo',
+          'Trata de Llamar la Atención',
+          'Es Posesivo',
+          'Es Independiente',
+          'Es Desobediente',
+          'Es Desordenado',
+          'Es Ordenado',
+          'Sin Especificar'
+        ],
+      },
+    },
+    {
+      name: 'nombre_de_padre',
+      title: 'Nombre del Padre',
+      type: 'string',
+    },
+    {
+      name: 'telefono_trabajo_padre',
+      title: 'Teléfono del Trabajo del Padre',
+      type: 'string',
+    },
+    {
+      name: 'telefono_celular_padre',
+      title: 'Teléfono Celular del Padre',
+      type: 'string',
+    },
+    {
+      name: 'correo_electronico_padre',
+      title: 'Correo Electrónico del Padre',
+      type: 'string',
+    },
+    {
+      name: 'direccion_padre',
+      title: 'Dirección del Padre',
+      type: 'string',
+    },
+    {
+      name: 'sector_padre',
+      title: 'Sector del Padre',
+      type: 'string',
+    },
+    {
+      name: 'nombre_de_madre',
+      title: 'Nombre de la Madre',
+      type: 'string',
+    },
+    {
+      name: 'telefono_trabajo_madre',
+      title: 'Teléfono del Trabajo de la Madre',
+      type: 'string',
+    },
+    {
+      name: 'telefono_celular_madre',
+      title: 'Teléfono Celular de la Madre',
+      type: 'string',
+    },
+    {
+      name: 'correo_electronico_madre',
+      title: 'Correo Electrónico de la Madre',
+      type: 'string',
+    },  {
+      name: 'direccion_madre',
+      title: 'Dirección del Madre',
+      type: 'string',
+    },
+    {
+      name: 'sector_madre',
+      title: 'Sector del Madre',
+      type: 'string',
+    },
+  ],
+}
