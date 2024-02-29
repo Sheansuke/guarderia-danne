@@ -30,10 +30,6 @@ jobs:
         run: npm run build
         working-directory: ./backend
 
-      - name: Login to Sanity
-        run: SANITY_AUTH_TOKEN=${{ secrets.SANITY_AUTH_TOKEN }} sanity login --token 
-        working-directory: ./backend
-
       - name: Deploy Sanity Studio
-        run:  sanity deploy --token ${{ secrets.SANITY_TOKEN }} --dataset ${{ secrets.SANITY_ENVIRONMENT }} --yes
+        run:  SANITY_AUTH_TOKEN=${{ secrets.SANITY_AUTH_TOKEN }} npx sanity deploy --dataset ${{ secrets.SANITY_ENVIRONMENT }} --yes
         working-directory: ./backend
