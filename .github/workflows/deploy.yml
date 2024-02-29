@@ -18,12 +18,15 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '18'
-          
+
       - name: Change directory to backend
         run: cd backend
 
       - name: Install Sanity CLI
         run: npm install -g @sanity/cli
+
+      - name: Change directory to backend
+        run: cd backend
 
       - name: Install dependencies
         run: npm install
