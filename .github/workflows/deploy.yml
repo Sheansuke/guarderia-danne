@@ -22,6 +22,10 @@ jobs:
         run: npm install -g @sanity/cli
         working-directory: ./backend
 
+      - name: Login to Sanity
+        run: sanity login --token ${{ secrets.SANITY_AUTH_TOKEN }}
+        working-directory: ./backend
+
       - name: Install dependencies
         run: npm install
         working-directory: ./backend
