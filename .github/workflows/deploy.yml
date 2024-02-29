@@ -18,10 +18,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Change directory to backend
-        run: cd backend
-        working-directory: ./backend
-
       - name: Install Sanity CLI
         run: npm install -g @sanity/cli
         working-directory: ./backend
