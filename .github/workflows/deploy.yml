@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      SANITY_ENVIROMENT: production
+      SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -27,9 +31,9 @@ jobs:
         working-directory: ./backend
 
       - name: Build Sanity Studio
-        run: SANITY_ENVIROMENT=production npm run build
+        run:  npm run build
         working-directory: ./backend
 
       - name: Deploy Sanity Studio
-        run:  SANITY_AUTH_TOKEN=${{ secrets.SANITY_AUTH_TOKEN }} SANITY_ENVIROMENT=production npx sanity deploy --dataset production --yes
+        run:  npx sanity deploy 
         working-directory: ./backend
