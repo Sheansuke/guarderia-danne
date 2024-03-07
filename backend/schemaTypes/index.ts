@@ -1,6 +1,7 @@
-import hijos from './hijos'
-import reportes from './reportes'
-import pagos from './pagos'
+import child from './child'
+import report from './report'
+import payment from './payment'
+import reviews from './reviews'
 
 
-export const schemaTypes = [hijos, reportes,pagos]
+export const schemaTypes = [child, report,payment,reviews]

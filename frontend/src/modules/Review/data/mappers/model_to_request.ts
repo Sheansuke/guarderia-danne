@@ -1,0 +1,1 @@
+export const modelToRequest = (model: any): any => {}

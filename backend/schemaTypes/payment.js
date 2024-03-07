@@ -1,18 +1,21 @@
 import short from "short-uuid"
+import {CreditCardIcon} from '@sanity/icons'
+
 
 export default {
-  name: 'pagos',
+  name: 'payment',
   title: 'Pagos',
   type: 'document',
+  icon: CreditCardIcon,
   preview: {
     select: {
-      title: 'pago_de.nombre_completo',
-      subtitle: 'estado'
+      title: 'payment_for.full_name',
+      subtitle: 'status'
     },
   },
   fields: [
     {
-      name: 'id_pago',
+      name: 'payment_id',
       title: 'ID de Pago',
       type: 'string', 
       readOnly: true,
@@ -20,15 +23,15 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'pago_de',
+      name: 'payment_for',
       title: 'Registrar pago para: ',
       description: 'Selecciona el niño al que se le hará el pago.',
       type: 'reference',
-      to: [{type: 'hijos'}],
+      to: [{type: 'child'}],
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'estado',
+      name: 'status',
       title: 'Estado',
       type: 'string',
       options: {
@@ -41,14 +44,14 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'cantidad',
+      name: 'amount',
       title: 'Cantidad',
       type: 'string',
 
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'concepto',
+      name: 'payment_concept',
       title: 'Concepto de pago',
       type: 'text',
     },

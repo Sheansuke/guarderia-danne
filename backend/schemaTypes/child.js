@@ -1,25 +1,26 @@
 import short from "short-uuid"
-
+import {UsersIcon} from "@sanity/icons"
 
 export default {
-  name: 'hijos',
+  name: 'child',
   type: 'document',
   title: 'Niños',
+  icon: UsersIcon,
   preview: {
     select: {
-      title: 'nombre_completo',
-      subtitle: 'apodo'
+      title: 'full_name',
+      subtitle: 'nickname'
     },
   },
   fields: [
     {
-      name: 'nombre_completo',
+      name: 'full_name',
       title: 'Nombre Completo',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'codigo_consulta',
+      name: 'parent_consultation_code',
       title: 'Codigo De Consulta Del Padre',
       type: 'string', 
       readOnly: true,
@@ -27,7 +28,7 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'horario_entrada',
+      name: 'entry_time',
       title: 'Horario de Entrada',
       type: 'string', 
       options: {
@@ -60,7 +61,7 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'horario_salida',
+      name: 'exit_time',
       title: 'Horario de Salida',
       type: 'string', 
       options: {
@@ -94,29 +95,29 @@ export default {
     },
 
     {
-      name: 'apodo',
+      name: 'nickname',
       title: 'Apodo',
       type: 'string',
     },
     {
-      name: 'fecha_nacimiento',
+      name: 'date_of_birth',
       title: 'Fecha de Nacimiento',
       type: 'date', 
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'nacionalidad',
+      name: 'nationality',
       title: 'Nacionalidad',
       type: 'string',
     },
     {
-      name: 'edad',
+      name: 'age',
       title: 'Edad',
       type: 'number',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'sangre',
+      name: 'blood_type',
       title: 'Tipo de Sangre',
       type: 'string',
       options: {
@@ -134,18 +135,18 @@ export default {
       },
     },
     {
-      name: 'telefono_residencia',
+      name: 'residence_phone',
       title: 'Teléfono de Residencia',
       type: 'string',
     },
     {
-      name: 'tutor',
+      name: 'guardian',
       title: 'Tutor',
       type: 'string',
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'vive_con_padres',
+      name: 'lives_with_parents',
       title: 'Vive con Padres',
       type: 'string',
       options: {
@@ -154,17 +155,17 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      name: 'numero_contacto',
+      name: 'contact_number',
       title: 'Número de Contacto',
       type: 'string',
     },
     {
-      name: 'persona_emergencia',
+      name: 'emergency_contact_person',
       title: 'Persona de Emergencia',
       type: 'string',
     },
     {
-      name: 'parentesco',
+      name: 'relationship',
       title: 'Parentesco',
       type: 'array',
       validation: (Rule) => Rule.required(),
@@ -178,7 +179,7 @@ export default {
       },
     },
     {
-      name: 'padece_enfermedad',
+      name: 'has_disease',
       title: 'Padece Enfermedad',
       type: 'string',
       validation: (Rule) => Rule.required(),
@@ -187,17 +188,17 @@ export default {
       },
     },
     {
-      name: 'enfermedad_padecida',
+      name: 'disease_history',
       title: 'Enfermedad Padecida',
       type: 'text',
     },
     {
-      name: 'medicamentos_requeridos',
+      name: 'required_medications',
       title: 'Medicamentos Requeridos',
       type: 'text',
     },
     {
-      name: 'es_alergico',
+      name: 'is_allergic',
       title: 'Es Alérgico',
       type: 'string',
       validation: (Rule) => Rule.required(),
@@ -206,7 +207,7 @@ export default {
       },
     },
     {
-      name: 'vacunas_al_dia',
+      name: 'vaccinations_up_to_date',
       title: 'Vacunas al Día',
       type: 'string',
       validation: (Rule) => Rule.required(),
@@ -215,7 +216,7 @@ export default {
       },
     },
     {
-      name: 'tiene_seguro_medico',
+      name: 'has_medical_insurance',
       title: 'Tiene Seguro Médico',
       type: 'string',
       validation: (Rule) => Rule.required(),
@@ -224,7 +225,7 @@ export default {
       },
     },
     {
-      name: 'padece',
+      name: 'suffers_from',
       title: 'Padece',
       type: 'array',
       validation: (Rule) => Rule.required(),
@@ -246,17 +247,17 @@ export default {
       },
     },
     {
-      name: 'pediatra',
+      name: 'pediatrician',
       title: 'Pediatra',
       type: 'string',
     },
     {
-      name: 'contacto_pediatra',
+      name: 'pediatrician_contact',
       title: 'Contacto del Pediatra',
       type: 'string',
     },
     {
-      name: 'frecuentemente_se_siente',
+      name: 'frequently_feels',
       title: 'Frecuentemente se Siente',
       type: 'array',
       validation: (Rule) => Rule.required(),
@@ -281,61 +282,61 @@ export default {
       },
     },
     {
-      name: 'nombre_de_padre',
+      name: 'father_name',
       title: 'Nombre del Padre',
       type: 'string',
     },
     {
-      name: 'telefono_trabajo_padre',
+      name: 'father_work_phone',
       title: 'Teléfono del Trabajo del Padre',
       type: 'string',
     },
     {
-      name: 'telefono_celular_padre',
+      name: 'father_cell_phone',
       title: 'Teléfono Celular del Padre',
       type: 'string',
     },
     {
-      name: 'correo_electronico_padre',
+      name: 'father_email',
       title: 'Correo Electrónico del Padre',
       type: 'string',
     },
     {
-      name: 'direccion_padre',
+      name: 'father_address',
       title: 'Dirección del Padre',
       type: 'string',
     },
     {
-      name: 'sector_padre',
+      name: 'father_sector',
       title: 'Sector del Padre',
       type: 'string',
     },
     {
-      name: 'nombre_de_madre',
+      name: 'mother_name',
       title: 'Nombre de la Madre',
       type: 'string',
     },
     {
-      name: 'telefono_trabajo_madre',
+      name: 'mother_work_phone',
       title: 'Teléfono del Trabajo de la Madre',
       type: 'string',
     },
     {
-      name: 'telefono_celular_madre',
+      name: 'mother_cell_phone',
       title: 'Teléfono Celular de la Madre',
       type: 'string',
     },
     {
-      name: 'correo_electronico_madre',
+      name: 'mother_email',
       title: 'Correo Electrónico de la Madre',
       type: 'string',
     },  {
-      name: 'direccion_madre',
+      name: 'mother_address',
       title: 'Dirección del Madre',
       type: 'string',
     },
     {
-      name: 'sector_madre',
+      name: 'mother_sector',
       title: 'Sector del Madre',
       type: 'string',
     },

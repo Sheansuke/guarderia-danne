@@ -1,22 +1,25 @@
+import {DocumentSheetIcon} from '@sanity/icons'
+
 export default {
-  name: 'reportes',
+  name: 'report',
   title: 'Reportes',
   type: 'document',
+  icon: DocumentSheetIcon,
   preview: {
     select: {
-      title: 'reporte_para.nombre_completo',
+      title: 'report_for.full_name',
     },
   },
   fields: [
     {
-      name: 'reporte_para',
+      name: 'report_for',
       title: 'Reporte para',
       type: 'reference',
-      to: [{ type: 'hijos' }],
+      to: [{ type: 'child' }],
       validation: Rule => Rule.required(),
     },
     {
-      name: 'hoy_estuve',
+      name: 'today_i_felt',
       title: 'Hoy estuve',
       type: 'array',
       validation: Rule => Rule.required(),
@@ -43,7 +46,7 @@ export default {
       },
     },
     {
-      name: 'en_hora_de_trabajo_me_mostre',
+      name: 'during_work_hours_i_was',
       title: 'En hora de trabajo me mostré',
       type: 'array',
       validation: Rule => Rule.required(),
@@ -64,12 +67,12 @@ export default {
       },
     },
     {
-      name: 'comentario_extra_hora_trabajo',
+      name: 'extra_comment_work_hour',
       title: 'Comentario extra hora de trabajo',
       type: 'text',
     },
     {
-      name: 'hoy_comi',
+      name: 'today_i_ate',
       title: 'Hoy comí',
       type: 'array',
       of: [{ type: 'string' }],
@@ -84,12 +87,12 @@ export default {
       },
     },
     {
-      name: 'comentario_extra_hoy_comi',
+      name: 'extra_comment_today_i_ate',
       title: 'Comentario extra hoy comí',
       type: 'text',
     },
     {
-      name: 'en_el_sanitario',
+      name: 'in_the_bathroom',
       title: 'En el sanitario',
       type: 'array',
       validation: Rule => Rule.required(),
@@ -103,12 +106,12 @@ export default {
       },
     },
     {
-      name: 'comentario_extra_sanitario',
+      name: 'extra_comment_bathroom',
       title: 'Comentario extra baño',
       type: 'text',
     },
     {
-      name: 'se_necesita',
+      name: 'needs',
       title: 'Se necesita',
       type: 'array',
       validation: Rule => Rule.required(),
@@ -124,22 +127,9 @@ export default {
       },
     },
     {
-      name: 'comentario_extra_necesita',
+      name: 'extra_comment_needs',
       title: 'Comentario extra necesita',
       type: 'text',
     },
-    // {
-    //   name: 'fecha_creacion',
-    //   title: 'Fecha de creación',
-    //   type: 'datetime',
-    //   readOnly: true,
-    //   initialValue: () => Date.now(),
-    //   validation: (Rule) => Rule.required(),
-    // },
-    // {
-    //   name: 'fecha_ultima_actualizacion',
-    //   title: 'Fecha de última actualización',
-    //   type: 'datetime',
-    // },
   ],
 };
