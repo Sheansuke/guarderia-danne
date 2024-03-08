@@ -1,4 +1,4 @@
-export interface PaymentModel {
+export interface IPaymentResponseModel {
     payment_id: string;
     status: 'PAGADO' | 'PENDIENTE' | 'ANULADO';
     amount: string;

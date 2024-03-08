@@ -1,4 +1,4 @@
-export interface ReviewResponseModel {
+export interface IReviewModel {
     name: string;
     description: string;
     score: number;

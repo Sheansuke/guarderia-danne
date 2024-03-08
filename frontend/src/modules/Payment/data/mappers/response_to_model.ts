@@ -1,11 +1,11 @@
-import { PaymentResponseModel } from "@modules/Payment/data/models/response/PaymentResponseModel";
-import { PaymentModel } from "@modules/Payment/domain/models/PaymentModel";
+import { IPaymentResponseModel } from "@/modules/Payment/data/models/response/IPaymentResponseModel";
+import { IPaymentModel } from "@/modules/Payment/domain/models/IPaymentModel";
 
-export const responseToModel = (response: PaymentResponseModel): PaymentModel => {
-  return {
-    payment_id: response.payment_id,
-    status: response.status,
-    amount: response.amount,
-    payment_concept: response.payment_concept,
-  };
+export const responseToModel = (response: IPaymentResponseModel[]): IPaymentModel[] => {
+  return response.map((item) => ({
+    payment_id: item.payment_id,
+    status: item.status,
+    amount: item.amount,
+    payment_concept: item.payment_concept,
+  }));
 };

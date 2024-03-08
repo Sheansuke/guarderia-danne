@@ -1,35 +1,30 @@
-'use server'
+"use server";
 import "server-only";
 
 import { IGetChildRequest } from "@/modules/Child/data/models/request/IGetChildRequest";
 import { ChildRepository } from "@/modules/Child/data/repository/ChildRepository";
-import { ServiceResponse } from "@/modules/config/ServiceResponse";
+import { IChildServiceResponse } from "@/modules/Child/config/IChildServiceResponse";
+import { ChildModel } from "@/modules/Child/domain/models/ChildModel";
 
-export const getChildByCodeUseCase = async (getChildRequest: IGetChildRequest): Promise<ServiceResponse<any>> => {
+export const getChildByCodeUseCase = async (getChildRequest: IGetChildRequest): Promise<IChildServiceResponse<ChildModel>> => {
   const result = await ChildRepository.getChildByCode(getChildRequest);
 
   switch (result.status) {
     case "SUCCESS": {
-      return result.data;
+      return {
+        data: result.data,
+      };
     }
 
     case "FAILED": {
       return {
-        data: null,
-        error: {
-          message: "Error al intentar obtener los datos del niño. Por favor, intente nuevamente.",
-          code: 500,
-        },
+        error: result.error,
       };
     }
 
     default: {
       return {
-        data: null,
-        error: {
-          message: "Error al intentar obtener los datos del niño. Por favor, intente nuevamente.",
-          code: 0,
-        },
+        error: result.error,
       };
     }
   }

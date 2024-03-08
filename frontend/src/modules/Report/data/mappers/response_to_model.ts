@@ -1,16 +1,16 @@
-import { ReportResponseModel } from "@/modules/Report/data/models/response/ReportResponseModel";
+import { IReportResponseModel } from "@/modules/Report/data/models/response/IReportResponseModel";
 import { ReportModel } from "@/modules/Report/domain/models/ReportModel";
 
-export const responseToModel = (response: ReportResponseModel): ReportModel => {
-    return {
-        today_i_felt: response.today_i_felt,
-        during_work_hours_i_was: response.during_work_hours_i_was,
-        extra_comment_work_hour: response.extra_comment_work_hour,
-        today_i_ate: response.today_i_ate,
-        extra_comment_today_i_ate: response.extra_comment_today_i_ate,
-        in_the_bathroom: response.in_the_bathroom,
-        extra_comment_bathroom: response.extra_comment_bathroom,
-        needs: response.needs,
-        extra_comment_needs: response.extra_comment_needs,
-    };
+export const responseToModel = (response: IReportResponseModel[]): ReportModel[] => {
+    return response.map((item) => ({
+        today_i_felt: item.today_i_felt,
+        during_work_hours_i_was: item.during_work_hours_i_was,
+        extra_comment_work_hour: item.extra_comment_work_hour,
+        today_i_ate: item.today_i_ate,
+        extra_comment_today_i_ate: item.extra_comment_today_i_ate,
+        in_the_bathroom: item.in_the_bathroom,
+        extra_comment_bathroom: item.extra_comment_bathroom,
+        needs: item.needs,
+        extra_comment_needs: item.extra_comment_needs,
+    }));
 }

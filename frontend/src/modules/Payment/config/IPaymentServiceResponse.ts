@@ -1,8 +1,7 @@
-export interface ServiceResponse<T> {
-  data: T | null;
+export interface IPaymentServiceResponse<T> {
+  data?: T;
   status?: "SUCCESS" | "FAILED"
   error?: {
     message: string;
-    code: number;
   } | null;
 }

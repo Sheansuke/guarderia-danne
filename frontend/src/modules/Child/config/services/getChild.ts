@@ -1,9 +1,10 @@
 import { sanityClient } from "@/infrastructure/sanity/sanityClient";
+import { CHILD_ENDPOINTS } from "@/modules/Child/config/ChildEndpoints";
 import { IGetChildRequest } from "@/modules/Child/data/models/request/IGetChildRequest";
 import { ChildResponseModel } from "@/modules/Child/data/models/response/ChildResponseModel";
 
-export const getChild = async ({ code }: IGetChildRequest): Promise<any> => {
-  const childResponseModel: ChildResponseModel = await sanityClient.fetch(`*[_type == "child" && parent_consultation_code == "${code}"]{
+export const getChild = async ({ code }: IGetChildRequest): Promise<ChildResponseModel> => {
+  const childResponseModel = await sanityClient.fetch<ChildResponseModel[]>(`*[_type == "${CHILD_ENDPOINTS.CHILD}" && parent_consultation_code == "${code}"]{
     father_name,
     mother_name,
     guardian,
@@ -12,6 +13,5 @@ export const getChild = async ({ code }: IGetChildRequest): Promise<any> => {
     date_of_birth,
     age,
   }`);
-
-  return childResponseModel;
+  return childResponseModel[0];
 };

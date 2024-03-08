@@ -1,4 +1,4 @@
-export interface ReportResponseModel {
+export interface IReportResponseModel {
   today_i_felt: string[];
   during_work_hours_i_was: string[];
   extra_comment_work_hour?: string;
