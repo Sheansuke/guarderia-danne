@@ -1,12 +1,12 @@
 "use server";
 import "server-only";
 
-import { ReviewRepository } from "@/modules/Review/data/repository/ReviewRepository";
-import { IReviewServiceResponse } from "@/modules/Review/config/IReviewServiceResponse";
-import { IReviewModel } from "@/modules/Review/domain/models/IReviewModel";
+import { ReviewRepository } from "@modules/Review/data/repository/ReviewRepository";
+import type { IReviewServiceResponse } from "@modules/Review/config/IReviewServiceResponse";
+import type { IReviewModel } from "@modules/Review/domain/models/IReviewModel";
 
-export const getReviewsUseCase = async (): Promise<IReviewServiceResponse<IReviewModel[]>> => {
-  const result = await ReviewRepository.getReviews();
+export const getReviewsUseCase = async ({ page, limit }: { page: number; limit: number }): Promise<IReviewServiceResponse<IReviewModel[]>> => {
+  const result = await ReviewRepository.getReviews(page, limit);
 
   switch (result.status) {
     case "SUCCESS": {

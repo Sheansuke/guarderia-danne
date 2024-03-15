@@ -1,5 +1,5 @@
-import { IReportResponseModel } from "@/modules/Report/data/models/response/IReportResponseModel";
-import { ReportModel } from "@/modules/Report/domain/models/ReportModel";
+import type { IReportResponseModel } from "@modules/Report/data/models/response/IReportResponseModel";
+import type { ReportModel } from "@modules/Report/domain/models/ReportModel";
 
 export const responseToModel = (response: IReportResponseModel[]): ReportModel[] => {
     return response.map((item) => ({

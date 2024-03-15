@@ -1,5 +1,5 @@
-import { ChildResponseModel } from "@/modules/Child/data/models/response/ChildResponseModel";
-import { ChildModel } from "@modules/Child/domain/models/ChildModel";
+import type { ChildResponseModel } from "@modules/Child/data/models/response/ChildResponseModel";
+import type { ChildModel } from "@modules/Child/domain/models/ChildModel";
 
 export const responseToModel = (response: ChildResponseModel): ChildModel => {
   return {

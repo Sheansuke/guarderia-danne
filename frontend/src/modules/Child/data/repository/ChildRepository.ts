@@ -1,5 +1,5 @@
-import { ChildService } from "@/modules/Child/config/services/ChildService";
-import { IGetChildRequest } from "@/modules/Child/data/models/request/IGetChildRequest";
+import { ChildService } from "@modules/Child/config/services/ChildService";
+import type { IGetChildRequest } from "@modules/Child/data/models/request/IGetChildRequest";
 
 
 export namespace ChildRepository {

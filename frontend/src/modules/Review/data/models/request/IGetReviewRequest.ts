@@ -1,3 +1,5 @@
 export interface IGetReviewRequest {
-    code: string;
-}
+    page: number;
+    limit: number;
+  }
+  

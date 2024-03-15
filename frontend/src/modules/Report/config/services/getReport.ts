@@ -1,12 +1,15 @@
-import { REPORT_ENDPOINTS } from "@/modules/Report/config/ReportEndpoints";
-import { IGetReportRequest } from "@/modules/Report/data/models/request/IGetReportRequest";
-import { IReportResponseModel } from "@/modules/Report/data/models/response/IReportResponseModel";
+import { REPORT_ENDPOINTS } from "@modules/Report/config/ReportEndpoints";
+import type { IGetReportRequest } from "@modules/Report/data/models/request/IGetReportRequest";
+import type { IReportResponseModel } from "@modules/Report/data/models/response/IReportResponseModel";
+import { sanityClient } from "@infrastructure/sanity/sanityClient";
 
+export const getReport = async ({ code, childEndpoint, pagination }: IGetReportRequest): Promise<IReportResponseModel[]> => {
+  const startPagination = (pagination.page - 1) * pagination.limit;
+  const finishPagination = startPagination + pagination.limit;
 
-
-export const getReport = async ({ code, childEndpoint }: IGetReportRequest): Promise<IReportResponseModel[]> => {
-  const {sanityClient} = await import("@/infrastructure/sanity/sanityClient")
-  const report = await sanityClient.fetch<IReportResponseModel[]>(`*[_type == "${REPORT_ENDPOINTS.REPORT}" && *[_type == "${childEndpoint}" && references(^._id) && parent_consultation_code == "${code}"] != []] {
+  const report = await sanityClient.fetch<
+    IReportResponseModel[]
+  >(`*[_type == "${REPORT_ENDPOINTS.REPORT}" && *[_type == "${childEndpoint}" && references(^._id) && parent_consultation_code == "${code}"] != []][${startPagination}...${finishPagination}] {
     today_i_felt,
     during_work_hours_i_was,
     extra_comment_work_hour,

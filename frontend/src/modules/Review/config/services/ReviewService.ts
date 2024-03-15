@@ -1,12 +1,12 @@
-import { IReviewServiceResponse } from "@/modules/Review/config/IReviewServiceResponse";
-import { getReview } from "@/modules/Review/config/services/getReview";
-import { responseToModel } from "@/modules/Review/data/mappers/response_to_model";
-import { IReviewModel } from "@/modules/Review/domain/models/IReviewModel";
+import type { IReviewServiceResponse } from "@modules/Review/config/IReviewServiceResponse";
+import { getReview } from "@modules/Review/config/services/getReview";
+import { responseToModel } from "@modules/Review/data/mappers/response_to_model";
+import type { IReviewModel } from "@modules/Review/domain/models/IReviewModel";
 
 export namespace ReviewService {
-  export async function getReviews(): Promise<IReviewServiceResponse<IReviewModel[]>> {
+  export async function getReviews(page: number, limit: number): Promise<IReviewServiceResponse<IReviewModel[]>> {
     try {
-      const result = await getReview();
+      const result = await getReview({ page, limit });
       const model = responseToModel(result);
 
       return {

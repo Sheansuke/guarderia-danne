@@ -1,8 +1,8 @@
-import { getChild } from "@/modules/Child/config/services/getChild";
-import { IGetChildRequest } from "@/modules/Child/data/models/request/IGetChildRequest";
-import { IChildServiceResponse } from "@/modules/Child/config/IChildServiceResponse";
-import { ChildModel } from "@/modules/Child/domain/models/ChildModel";
-import { responseToModel } from "@/modules/Child/data/mappers/response_to_model";
+import { getChild } from "@modules/Child/config/services/getChild";
+import type { IGetChildRequest } from "@modules/Child/data/models/request/IGetChildRequest";
+import type { IChildServiceResponse } from "@modules/Child/config/IChildServiceResponse";
+import type { ChildModel } from "@modules/Child/domain/models/ChildModel";
+import { responseToModel } from "@modules/Child/data/mappers/response_to_model";
 
 export namespace ChildService {
   export async function getChildByCode(getChildRequest: IGetChildRequest): Promise<IChildServiceResponse<ChildModel>> {

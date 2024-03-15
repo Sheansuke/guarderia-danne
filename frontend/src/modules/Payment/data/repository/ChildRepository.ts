@@ -1,5 +1,5 @@
-import { PaymentService } from "@/modules/Payment/config/services/PaymentService";
-import { IGetPaymentRequest } from "@/modules/Payment/data/models/request/IGetPaymentRequest";
+import { PaymentService } from "@modules/Payment/config/services/PaymentService";
+import type { IGetPaymentRequest } from "@modules/Payment/data/models/request/IGetPaymentRequest";
 
 
 export namespace PaymentRepository {
