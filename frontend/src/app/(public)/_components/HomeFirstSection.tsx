@@ -1,6 +1,4 @@
-import dynamic from "next/dynamic";
-
-const Image = dynamic(() => import("next/image"));
+import Image from "next/image";
 
 export const HomeFirstSection = () => {
   return (
