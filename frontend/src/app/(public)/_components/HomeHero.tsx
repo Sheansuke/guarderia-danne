@@ -1,6 +1,4 @@
 import { HeroImage } from "@/app/(public)/_components/HeroImage";
-import { Suspense } from "react";
-
 
 export const HomeHero = () => {
   return (
@@ -15,9 +13,7 @@ export const HomeHero = () => {
 
         {/* IMAGE */}
         <div className="hidden md:block items-center">
-          <Suspense>
-            <HeroImage />
-          </Suspense>
+          <HeroImage />
         </div>
       </div>
     </div>
