@@ -13,7 +13,7 @@ export const HomeHero = () => {
 
         {/* IMAGE */}
         <div className="hidden md:block items-center">
-          <HeroImage />
+          {/* <HeroImage /> */}
         </div>
       </div>
     </div>
