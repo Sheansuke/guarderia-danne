@@ -28,7 +28,7 @@ export default async function Home() {
   return (
     <main>
       <section>
-        {/* <HomeHero /> */}
+        <HomeHero />
       </section>
 
       <section>
