@@ -1,3 +1,5 @@
+import { HomeFirstSection } from "@/app/(public)/_components/HomeFirstSection";
+import { HomeHero } from "@/app/(public)/_components/HomeHero";
 import { ENDPOINTS } from "@/infrastructure/sanity/constants/endpoints";
 import { getPaymentByCodeUseCase } from "@/modules/Payment/domain/usecase/getPaymentByCodeUseCase";
 import { getReportByCodeUseCase } from "@/modules/Report/domain/usecase/getReportByCodeUseCase";
@@ -18,7 +20,6 @@ export default async function Home() {
 
   // const response = await getPaymentByCodeUseCase({ code: "F2mru9NYgLJ95Q74FzM7pKS", childEndpoint: ENDPOINTS.CHILD_ENDPOINT, pagination: { page: 1, limit: 10 }});
 
-
   // const response = await getReviewsUseCase({
   //   page: 1,
   //   limit: 10
@@ -26,7 +27,13 @@ export default async function Home() {
 
   return (
     <main>
-      <h1 className="text-2xl font-bold md:text-orange-400">GUARDERIA DE DANNE</h1>
+      <section>
+        <HomeHero />
+      </section>
+
+      <section>
+        <HomeFirstSection />
+      </section>
     </main>
   );
 }
