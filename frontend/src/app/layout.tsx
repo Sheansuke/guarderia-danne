@@ -24,9 +24,7 @@ export default function RootLayout({
     <html lang="en" data-theme="light">
       <body className={cn(`min-h-screen bg-background font-sans antialiased bg-orange-200 ${dosis.className}`)}>
         <header>
-          <Suspense>
-            <NavBar />
-          </Suspense>
+          <NavBar />
         </header>
         {children}
         <Analytics />
