@@ -34,37 +34,13 @@ export const NavBar = () => {
           </a>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
-            {isDesktop &&
-              navigationOptions.map((option) => (
-                <li key={option.path}>
-                  <Link href={option.path} className="font-bold text-green-950 text-sm md:text-lg flex items-center opacity-70">
-                    {option.tittle}
-                  </Link>
-                </li>
-              ))}
-          </ul>
-
-          <ul className="menu menu-horizontal ">
-            {isMobile && (
-              <li>
-                <details>
-                  <summary>
-                    <Image src="/icons/navbar_menu.svg" alt={"Icono Menu"} width={30} height={30} />
-                  </summary>
-                  <ul className="p-1 rounded-t-none  -right-4 bg-green-500 ">
-                    {navigationOptions.map((option) => (
-                      <li key={option.path}>
-                        <Link href={option.path} className="font-bold text-green-950 text-sm text-nowrap opacity-70">
-                          {option.tittle}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              </li>
-            )}
-          </ul>
+          {navigationOptions.map((option) => (
+            <li key={option.path}>
+              <Link href={option.path} className="font-bold text-green-950 text-sm md:text-lg flex items-center opacity-70">
+                {option.tittle}
+              </Link>
+            </li>
+          ))}
         </div>
       </div>
     </nav>
