@@ -9,7 +9,7 @@ export const NavBar = () => {
   const { isMobile, isDesktop } = useBreakPoints();
 
   return (
-    <nav className="bg-green-500 navbar">
+    <nav className="bg-green-500 navbar h-[75.96px]">
       <div className="md:container flex-1 ">
         <div className="flex-1 relative">
           <a href="/" className="mr-10">
@@ -34,7 +34,7 @@ export const NavBar = () => {
           </a>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 ">
             {isDesktop &&
               navigationOptions.map((option) => (
                 <li key={option.path}>
