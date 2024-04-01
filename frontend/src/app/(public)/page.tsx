@@ -1,10 +1,10 @@
 import { HomeFirstSection } from "@/app/(public)/_components/HomeFirstSection";
 import { HomeHero } from "@/app/(public)/_components/HomeHero";
-import { ENDPOINTS } from "@/infrastructure/sanity/constants/endpoints";
-import { getPaymentByCodeUseCase } from "@/modules/Payment/domain/usecase/getPaymentByCodeUseCase";
-import { getReportByCodeUseCase } from "@/modules/Report/domain/usecase/getReportByCodeUseCase";
-import { getReviewsUseCase } from "@/modules/Review/domain/usecase/getReviewsUseCase";
-import Image from "next/image";
+// import { ENDPOINTS } from "@/infrastructure/sanity/constants/endpoints";
+// import { getPaymentByCodeUseCase } from "@/modules/Payment/domain/usecase/getPaymentByCodeUseCase";
+// import { getReportByCodeUseCase } from "@/modules/Report/domain/usecase/getReportByCodeUseCase";
+// import { getReviewsUseCase } from "@/modules/Review/domain/usecase/getReviewsUseCase";
+// import Image from "next/image";
 
 export default async function Home() {
   // const response = await getChildByCodeUseCase({ code: "F2mru9NYgLJ95Q74FzM7pKS"});
