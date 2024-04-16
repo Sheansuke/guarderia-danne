@@ -1,5 +1,6 @@
-import { HomeFirstSection } from "@/app/(public)/_components/HomeFirstSection";
-import { HomeHero } from "@/app/(public)/_components/HomeHero";
+import { HomeFirstSection } from "@/app/(public)/_components/first-section/HomeFirstSection";
+import { HomeHero } from "@/app/(public)/_components/first-section/HomeHero";
+import { HomeSecondSection } from "@/app/(public)/_components/second-section/HomeSecondSection";
 // import { ENDPOINTS } from "@/infrastructure/sanity/constants/endpoints";
 // import { getPaymentByCodeUseCase } from "@/modules/Payment/domain/usecase/getPaymentByCodeUseCase";
 // import { getReportByCodeUseCase } from "@/modules/Report/domain/usecase/getReportByCodeUseCase";
@@ -27,12 +28,16 @@ export default async function Home() {
 
   return (
     <main>
-      <section >
+      <section>
         <HomeHero />
       </section>
 
       <section>
         <HomeFirstSection />
+      </section>
+
+      <section className="mt-36">
+        <HomeSecondSection />
       </section>
     </main>
   );
