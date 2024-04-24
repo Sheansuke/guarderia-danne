@@ -6,7 +6,7 @@ export const HomeFirstSection = () => {
     <div>
       <Image priority src={"/shapes/HeaderWave.svg"} alt="Home Wave Shape" width={100} height={100} className="w-full" />
 
-      <div className="md:flex justify-around mt-16 items-center md:items-start">
+      <div className="md:flex justify-around mt-16 items-center md:items-start w-full">
         <article className="md:w-1/3 w-full text-center">
           <HomeFirstSectionArticleOne />
         </article>
@@ -32,16 +32,16 @@ export const HomeFirstSectionArticleOne = () => {
 
 export const HomeFirstSectionArticleTwo = () => {
   return (
-    <>
-      <div className="flex md:flex-row flex-col gap-4">
+    <div className="flex flex-col gap-8 p-8 md:p-0">
+      <div className="flex md:flex-row flex-col gap-8">
         <HobbieCard src="/icons/manualidades_icon.svg" alt="icono de manualidades" backgroundColor="bg-bianca-200" titleColor="text-bianca-950" descriptionColor="text-bianca-800" />
         <HobbieCard src="/icons/juegos_icon.svg" alt="icono de actividades" backgroundColor="bg-gray-200" titleColor="text-gray-950" descriptionColor="text-gray-800" />
       </div>
 
-      <div className="flex md:flex-row flex-col gap-4">
+      <div className="flex md:flex-row flex-col gap-8">
         <HobbieCard src="/icons/actividades_icon.svg" alt="icono de juegos" backgroundColor="bg-green-300" titleColor="text-green-950" descriptionColor="text-green-800" />
         <HobbieCard src="/icons/socializacion_icon.svg" alt="icono de socializacion" backgroundColor="bg-dandelion-200" titleColor="text-dandelion-950" descriptionColor="text-dandelion-800" />
       </div>
-    </>
+    </div>
   );
 };

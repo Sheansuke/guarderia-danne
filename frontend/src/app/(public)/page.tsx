@@ -32,11 +32,11 @@ export default async function Home() {
         <HomeHero />
       </section>
 
-      <section>
+      <section className="w-full">
         <HomeFirstSection />
       </section>
 
-      <section className="mt-36">
+      <section className="mt-36 w-full">
         <HomeSecondSection />
       </section>
     </main>

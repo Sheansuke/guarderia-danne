@@ -11,7 +11,7 @@ interface HobbieCardProps {
 
 export const HobbieCard = ({ src, alt, backgroundColor, titleColor, descriptionColor }: HobbieCardProps) => {
   return (
-    <div className={clsx("h-[290px] md:w-[300px] w-96  rounded-xl  p-4", backgroundColor)}>
+    <div className={clsx("h-[290px] md:w-[300px] w-full rounded-xl p-4", backgroundColor)}>
       <Image src={src} width={44} height={44} alt={alt} />
       <h3 className={clsx("text-[1.5rem] font-bold text-opacity-70 mt-1", titleColor)}>Manualidades</h3>
       <p className={clsx("mt-1 text-[1.3rem]", descriptionColor)}>
