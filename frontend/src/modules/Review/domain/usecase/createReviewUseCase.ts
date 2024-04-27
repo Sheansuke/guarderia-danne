@@ -39,7 +39,7 @@ export const createReviewUseCase = async (prevState: State, formData: FormData):
 
   const result = await ReviewRepository.createReview({
     name: name?.toString()!,
-    score: score.toString()!,
+    score: parseInt(score.toString()),
     description: description?.toString()!,
   });
 

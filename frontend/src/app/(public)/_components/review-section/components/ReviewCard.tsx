@@ -2,8 +2,8 @@ import { IReviewModel } from "@/modules/Review/domain/models/IReviewModel";
 import Image from "next/image";
 
 export const ReviewCard = ({ review }: { review: IReviewModel }) => {
-  const starArray = Array.from({ length: parseInt(review.score) }, () => 0);
-  const starOutlineArray = Array.from({ length: 5 - parseInt(review.score) }, () => 0);
+  const starArray = Array.from({ length: review.score }, () => 0);
+  const starOutlineArray = Array.from({ length: 5 - review.score }, () => 0);
 
   return (
     <div className="card card-normal bg-green-300 p-8 md:w-[500px] min-h-[350px]">
