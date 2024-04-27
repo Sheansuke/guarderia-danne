@@ -1,5 +1,6 @@
 import type { IReviewServiceResponse } from "@modules/Review/config/IReviewServiceResponse";
 import { getReview } from "@modules/Review/config/services/getReview";
+import { createReview } from "@modules/Review/config/services/createReview";
 import { responseToModel } from "@modules/Review/data/mappers/response_to_model";
 import type { IReviewModel } from "@modules/Review/domain/models/IReviewModel";
 
@@ -19,6 +20,25 @@ export namespace ReviewService {
         status: "FAILED",
         error: {
           message: "Error al intentar obtener los datos del niño. Por favor, intente nuevamente.",
+        },
+      };
+    }
+  }
+
+  export async function createNewReview(newReview: IReviewModel): Promise<IReviewServiceResponse<boolean>> {
+    try {
+      await createReview(newReview);
+      return {
+        status: "SUCCESS",
+        data: true,
+      };
+    } catch (error) {
+      console.log("🚀 ~ getReviews ~ error:", error);
+      return {
+        data: false,
+        status: "FAILED",
+        error: {
+          message: "Algo salio mal creando enviando la opinion",
         },
       };
     }

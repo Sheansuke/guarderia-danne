@@ -18,11 +18,13 @@ export const getReviewsUseCase = async ({ page, limit }: { page: number; limit: 
     case "FAILED": {
       return {
         error: result.error,
+        status: "SUCCESS",
       };
     }
 
     default: {
       return {
+        status: "FAILED",
         error: result.error,
       };
     }

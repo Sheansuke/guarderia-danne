@@ -6,10 +6,13 @@ export const getReview = async (pagination: IGetReviewRequest): Promise<IReviewR
   const startPagination = (pagination.page - 1) * pagination.limit;
   const finishPagination = startPagination + pagination.limit;
 
-  const reviewResponseModel = await sanityClient.fetch<IReviewResponseModel[]>(`*[_type == "review"][${startPagination}...${finishPagination}]{
+
+  const query = `*[_type == "review"] | order(_createdAt desc) [${startPagination}...${finishPagination}] {
     name,
     description,
     score
-  }`);
+  }`;
+
+  const reviewResponseModel = await sanityClient.fetch<IReviewResponseModel[]>(query);
   return reviewResponseModel;
 };
