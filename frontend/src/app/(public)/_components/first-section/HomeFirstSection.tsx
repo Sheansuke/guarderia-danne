@@ -6,7 +6,7 @@ export const HomeFirstSection = () => {
     <div>
       <Image priority src={"/shapes/HeaderWave.svg"} alt="Home Wave Shape" width={100} height={100} className="w-full" />
 
-      <div className="md:flex justify-around mt-16 items-center md:items-start w-full container">
+      <div className="md:flex justify-around mt-16 items-center md:items-start w-full md:container">
         <article className="md:w-1/3 w-full text-center">
           <HomeFirstSectionArticleOne />
         </article>

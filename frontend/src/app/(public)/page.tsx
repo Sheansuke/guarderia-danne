@@ -38,7 +38,7 @@ export default async function Home() {
         <HomeFirstSection />
       </section>
 
-      <section className="mt-36 w-full container">
+      <section className="mt-36 w-full md:container">
         <HomeSecondSection />
       </section>
 

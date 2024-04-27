@@ -6,7 +6,7 @@ export const ReviewCard = ({ review }: { review: IReviewModel }) => {
   const starOutlineArray = Array.from({ length: 5 - review.score }, () => 0);
 
   return (
-    <div className="card card-normal bg-green-300 p-8 w-[500px] min-h-[350px]">
+    <div className="card card-normal bg-green-300 p-8 md:w-[500px] min-h-[350px]">
       <h3 className="card-title text-green-950 text-opacity-70 font-bold text-[1.8rem]">{review.name}</h3>
       <div className="flex gap-1">
         {starArray.map((index) => (
