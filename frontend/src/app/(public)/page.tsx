@@ -1,6 +1,8 @@
 import { HomeFirstSection } from "@/app/(public)/_components/first-section/HomeFirstSection";
 import { HomeHero } from "@/app/(public)/_components/first-section/HomeHero";
 import { HomeSecondSection } from "@/app/(public)/_components/second-section/HomeSecondSection";
+import { ReviewSection } from "@/app/(public)/_components/review-section/ReviewSection";
+
 // import { ENDPOINTS } from "@/infrastructure/sanity/constants/endpoints";
 // import { getPaymentByCodeUseCase } from "@/modules/Payment/domain/usecase/getPaymentByCodeUseCase";
 // import { getReportByCodeUseCase } from "@/modules/Report/domain/usecase/getReportByCodeUseCase";
@@ -36,8 +38,12 @@ export default async function Home() {
         <HomeFirstSection />
       </section>
 
-      <section className="mt-36 w-full">
+      <section className="mt-36 w-full container">
         <HomeSecondSection />
+      </section>
+
+      <section className="mt-36 w-full ">
+        <ReviewSection />
       </section>
     </main>
   );
