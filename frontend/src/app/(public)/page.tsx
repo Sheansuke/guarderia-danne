@@ -52,7 +52,9 @@ export default async function Home() {
       </section>
 
       <section className="mt-16 w-full ">
-        <ReviewFormSection />
+        <Suspense>
+          <ReviewFormSection />
+        </Suspense>
       </section>
     </main>
   );

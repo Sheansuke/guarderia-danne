@@ -5,7 +5,7 @@ import { createReviewUseCase } from "@/modules/Review/domain/usecase/createRevie
 import { useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
 import { ToastContainer, toast } from "react-toastify";
-import css from "styled-jsx/css";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ReviewForm = () => {
   const formRef = useRef<HTMLFormElement>(null);

@@ -2,7 +2,7 @@
 
 import { HeroImage } from "@/app/(public)/_components/first-section/HeroImage";
 import { logger } from "@/core/server-actions/logger";
-
+import { Suspense } from "react";
 
 export const HomeHero = () => {
   return (
@@ -14,7 +14,6 @@ export const HomeHero = () => {
           <h2 className="text-green-800 md:text-[3rem] text-[2rem] text-opacity-90 mt-2">¡Donde cada niño encuentra su mundo de juego y aprendizaje!</h2>
           <button
             className="btn btn-lg bg-green-950 font-bold text-green-100 hover:bg-green-100 hover:text-green-950 border-none rounded-2xl bg-opacity-90 mt-6"
-
             // TODO: Add whatsapp contact action
             onClick={() => logger("I want to register my child")}
           >
@@ -24,7 +23,9 @@ export const HomeHero = () => {
 
         {/* IMAGE */}
         <div className="hidden md:block items-center">
-          <HeroImage />
+          <Suspense fallback={<div className="skeleton bg-opacity-10 w-[382.01px] h-[412.01px]"></div>}>
+            <HeroImage />
+          </Suspense>
         </div>
       </div>
     </div>
