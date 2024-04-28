@@ -1,11 +1,11 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { Dosis } from "next/font/google";
+import 'react-toastify/dist/ReactToastify.css';
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { NavBar } from "@/components/molecule/NavBar";
 import { nextMetadata } from "@/core/config/nextMetadata";
-import { Suspense } from "react";
 
 const dosis = Dosis({
   subsets: ["latin-ext"],

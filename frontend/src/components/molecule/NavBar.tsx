@@ -50,7 +50,7 @@ export const NavBar = () => {
               <li>
                 <details>
                   <summary>
-                    <Image src="/icons/navbar_menu.svg" alt={"Icono Menu"} width={30} height={30} />
+                    <Image priority src="/icons/navbar_menu.svg" alt={"Icono Menu"} width={30} height={30} />
                   </summary>
                   <ul className="p-1 rounded-t-none  -right-4 bg-green-500 ">
                     {navigationOptions.map((option) => (
