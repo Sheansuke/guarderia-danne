@@ -10,7 +10,7 @@ const dosis = Dosis({
   subsets: ["latin"],
   style: "normal",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
-
+  preload: true,
 });
 
 export const metadata: Metadata = nextMetadata;
