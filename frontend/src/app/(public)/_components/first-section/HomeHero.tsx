@@ -1,5 +1,5 @@
 import { HeroImage } from "@/app/(public)/_components/first-section/HeroImage";
-
+import { Suspense } from "react";
 
 export const HomeHero = () => {
   return (
