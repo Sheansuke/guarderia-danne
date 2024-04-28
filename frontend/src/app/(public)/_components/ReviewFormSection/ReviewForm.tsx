@@ -7,7 +7,6 @@ import { useFormState } from "react-dom";
 import { ToastContainer, toast } from "react-toastify";
 import css from "styled-jsx/css";
 
-
 export const ReviewForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const initialState = { errors: null, data: null, status: null };
@@ -35,7 +34,6 @@ export const ReviewForm = () => {
       draggable: true,
       progress: undefined,
       theme: "colored",
-
     });
 
   useEffect(() => {
@@ -53,22 +51,31 @@ export const ReviewForm = () => {
         <ToastContainer />
         <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-6 md:gap-16 ">
           <div className="flex flex-col w-full md:w-auto">
-            <label htmlFor="name" className="font-bold text-[1.5rem] text-orange-950 text-opacity-70">
+            <label htmlFor="name" className="font-bold text-[1.5rem] text-orange-950 text-opacity-90">
               Nombre
             </label>
             <input type="text" id="name" name="name" placeholder="Su nombre" className="input input-bordered input-lg w-full md:max-w-xs bg-gray-50" />
 
             <div className="rating rating-lg mt-2">
+              <label htmlFor="score" className="hidden">score 1</label>
               <input type="radio" id="1" name="score" value={1} className="mask mask-star-2 bg-green-500" />
+
+              <label htmlFor="score" className="hidden">score 2</label>
               <input type="radio" id="2" name="score" value={2} className="mask mask-star-2 bg-green-500" />
+
+              <label htmlFor="score" className="hidden">score 3</label>
               <input type="radio" id="3" name="score" value={3} className="mask mask-star-2 bg-green-500" />
+
+              <label htmlFor="score" className="hidden">score 4</label>
               <input type="radio" id="4" name="score" value={4} className="mask mask-star-2 bg-green-500" />
+
+              <label htmlFor="score" className="hidden">score 5</label>
               <input type="radio" id="5" name="score" value={5} className="mask mask-star-2 bg-green-500" />
             </div>
           </div>
 
           <div className="flex flex-col w-full md:w-auto">
-            <label htmlFor="description" className="font-bold text-[1.5rem] text-orange-950 text-opacity-70">
+            <label htmlFor="description" className="font-bold text-[1.5rem] text-orange-950 text-opacity-90">
               Descripcion
             </label>
             <textarea name="description" id="description" cols={30} rows={30} className="textarea textarea-bordered textarea-lg  md:w-[376px] h-[220px] bg-gray-50"></textarea>

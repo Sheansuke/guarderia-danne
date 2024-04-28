@@ -8,9 +8,10 @@ import { NavBar } from "@/components/molecule/NavBar";
 import { nextMetadata } from "@/core/config/nextMetadata";
 
 const dosis = Dosis({
-  subsets: ["latin-ext"],
+  subsets: ["latin"],
   style: "normal",
   weight: ["200", "300", "400", "500", "600", "700", "800"],
+
 });
 
 export const metadata: Metadata = nextMetadata;
@@ -22,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="light">
-      <body className={cn(`min-h-screen bg-background font-sans antialiased bg-orange-200 ${dosis.className}`)}>
+      <body className={cn(`min-h-screen bg-background antialiased bg-orange-200 ${dosis.className}`)}>
         <header>
           <NavBar />
         </header>

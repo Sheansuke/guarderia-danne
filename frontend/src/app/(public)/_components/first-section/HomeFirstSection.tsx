@@ -21,8 +21,8 @@ export const HomeFirstSection = () => {
 export const HomeFirstSectionArticleOne = () => {
   return (
     <div className="p-4 md:p-0">
-      <h2 className="md:text-start text-center text-orange-950 font-bold text-[2rem] text-opacity-70 mb-2">Cuidar niños es nuestra pasión.</h2>
-      <p className="text-orange-800 font-bold text-opacity-70 text-[1.3rem] md:text-start text-center">
+      <h2 className="md:text-start text-center text-orange-950 font-bold text-[2rem] text-opacity-90 mb-2">Cuidar niños es nuestra pasión.</h2>
+      <p className="text-orange-800 font-bold text-opacity-90 text-[1.3rem] md:text-start text-center">
         Cuidar niños es más que una tarea; es una vocación que nos invita a ser guardianes de su bienestar, mentores de su crecimiento y protectores de sus sueños. En cada abrazo, en cada sonrisa que
         florece gracias a nuestro cuidado, encontramos la razón más poderosa para dedicar nuestras vidas a este noble propósito.
       </p>

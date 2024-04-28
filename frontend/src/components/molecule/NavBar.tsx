@@ -2,8 +2,11 @@
 
 import { navigationOptions } from "@/core/config/navigationOptions";
 import { useBreakPoints } from "@/infrastructure/hooks/useBreakPoints";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import Link from "next/link";
+
+
+const Link = dynamic(()=> import("next/link"))
 
 export const NavBar = () => {
   const { isMobile, isDesktop } = useBreakPoints();
@@ -38,7 +41,7 @@ export const NavBar = () => {
             {isDesktop &&
               navigationOptions.map((option) => (
                 <li key={option.path}>
-                  <Link href={option.path} className="font-bold text-green-950 text-sm md:text-lg flex items-center opacity-70">
+                  <Link href={option.path} className="font-bold text-green-950 text-sm md:text-lg flex items-center ">
                     {option.tittle}
                   </Link>
                 </li>
@@ -55,7 +58,7 @@ export const NavBar = () => {
                   <ul className="p-1 rounded-t-none  -right-4 bg-green-500 ">
                     {navigationOptions.map((option) => (
                       <li key={option.path}>
-                        <Link href={option.path} className="font-bold text-green-950 text-sm text-nowrap opacity-70">
+                        <Link href={option.path} className="font-bold text-green-950 text-sm text-nowrap text-opacity-90">
                           {option.tittle}
                         </Link>
                       </li>
