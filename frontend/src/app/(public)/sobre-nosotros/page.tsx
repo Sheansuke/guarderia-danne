@@ -35,7 +35,7 @@ const QuienesSomos = () => (
       </p>
     </div>
 
-    <Image src="/images/logo.webp" alt="imagen salon" width={400} height={300} className="rounded-3xl"  />
+    <Image src="/images/logo.webp" priority alt="imagen salon" width={400} height={300} className="rounded-3xl"  />
   </div>
 );
 
