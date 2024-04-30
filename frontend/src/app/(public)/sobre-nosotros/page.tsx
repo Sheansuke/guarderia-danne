@@ -1,6 +1,8 @@
+import Image from "next/image";
+
 export default async function SobreNosotros() {
   return (
-    <section className="container p-8 mt-4 md:mt-16">
+    <section className="container p-8 mt-4 md:mt-16 ">
       <article>
         <QuienesSomos />
       </article>
@@ -25,7 +27,7 @@ export default async function SobreNosotros() {
 }
 
 const QuienesSomos = () => (
-  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 ">
+  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12  justify-center ">
     <div className="md:w-1/2">
       <h1 className="md:text-start text-center text-orange-950 font-bold text-[2rem] text-opacity-90 mb-2">Quienes Somos</h1>
       <p className="text-orange-800 font-bold text-opacity-90 text-[1.5rem] md:text-start text-center ">
@@ -33,13 +35,13 @@ const QuienesSomos = () => (
       </p>
     </div>
 
-    <div className="skeleton w-full md:w-[570px] h-[380px]"></div>
+    <Image src="/images/logo.webp" alt="imagen salon" width={400} height={300} className="rounded-3xl"  />
   </div>
 );
 
 const Horarios = () => (
-  <div className="flex flex-col-reverse  md:flex-row items-center md:items-start gap-8 md:gap-16 ">
-    <div className="skeleton w-full md:w-[570px] h-[380px]"></div>
+  <div className="flex flex-col-reverse  md:flex-row items-center md:items-start gap-8 md:gap-12 justify-center  ">
+  <Image src="/images/aboutus_section1.webp" alt="imagen salon" width={300} height={300}  />
 
     <div className="md:w-1/2">
       <h2 className="md:text-start text-center text-orange-950 font-bold text-[2rem] text-opacity-90 mb-2">Horario y Ubicacion</h2>
@@ -65,7 +67,7 @@ const Horarios = () => (
 );
 
 const QueHaceMiPeque = () => (
-  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 ">
+  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 justify-center  ">
     <div className="md:w-1/2">
       <h2 className="md:text-end text-center text-orange-950 font-bold text-[2rem] text-opacity-90 mb-2">¿Qué hace mi peque en la guardería?</h2>
       <p className="text-orange-800 font-bold text-opacity-90 text-[1.5rem] md:text-end text-center ">
@@ -73,13 +75,13 @@ const QueHaceMiPeque = () => (
       </p>
     </div>
 
-    <div className="skeleton w-full md:w-[570px] h-[380px]"></div>
+    <Image src="/images/aboutus_section2.webp" alt="imagen salon" width={300} height={300}  />
   </div>
 );
 
 const PuedoEscribirFrecuentemente = () => (
-  <div className="flex flex-col-reverse  md:flex-row items-center md:items-start gap-8 md:gap-16 ">
-    <div className="skeleton w-full md:w-[570px] h-[380px]"></div>
+  <div className="flex flex-col-reverse  md:flex-row items-center md:items-start gap-8 md:gap-12 justify-center  ">
+    <Image src="/images/aboutus_section3.webp" alt="imagen salon" width={300} height={300}  />
 
     <div className="md:w-1/2">
       <h2 className="md:text-start text-center text-orange-950 font-bold text-[2rem] text-opacity-90 mb-2">Puedo escribir frecuentemente y pedir fotos y videos de mi bebe?</h2>
@@ -91,12 +93,12 @@ const PuedoEscribirFrecuentemente = () => (
 );
 
 const IncluyeComida = () => (
-  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 ">
+  <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12 justify-center  ">
     <div className="md:w-1/2">
       <h2 className="text-center md:text-end text-orange-950 font-bold text-[2rem] text-opacity-90 mb-2">¿Incluye las comidas?</h2>
       <p className="text-orange-800 font-bold text-opacity-90 text-[1.5rem] md:text-end text-center ">Si, si asi lo deseas tu bebe tendra almuerzo todos los dias</p>
     </div>
 
-    <div className="skeleton w-full md:w-[570px] h-[380px]"></div>
+    <Image src="/images/aboutus_section4.webp" alt="imagen salon" width={300} height={300}  />
   </div>
 );
