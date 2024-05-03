@@ -18,12 +18,14 @@ export const getChildByCodeUseCase = async (getChildRequest: IGetChildRequest): 
 
     case "FAILED": {
       return {
+        data: null,
         error: result.error,
       };
     }
 
     default: {
       return {
+        data: null,
         error: result.error,
       };
     }

@@ -1,41 +1,4 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
-
-.Toastify__toast-theme--colored.Toastify__toast--success {
-  background-color: #2f9d82;
-}
-
-.Toastify__toast-theme--colored.Toastify__toast--error {
-  background-color: #692d25;
-}
-
-:root {
-
-  /* width */
-  ::-webkit-scrollbar {
-    width: 15px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #0B2823;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #2f9d82;
-  }
-
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #f2fbf8;
-  }
-}
-
-
-
-.hero-image-mask {
-  mask-image: radial-gradient(circle, black 50%, rgba(0, 0, 0, 0.5) 70%);
-}
+@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  

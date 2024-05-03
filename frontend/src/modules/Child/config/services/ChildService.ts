@@ -18,6 +18,7 @@ export namespace ChildService {
     } catch (error) {
       console.log("🚀 ~ getChildByCode ~ error:", error);
       return {
+        data: null,
         status: "FAILED",
         error: {
           message: "Error al intentar obtener los datos del niño. Por favor, intente nuevamente.",

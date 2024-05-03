@@ -12,7 +12,7 @@ export const navigationOptions: INavigationOption[] = [
   },
   {
     tittle: "Consultar Reporte",
-    path: "/contultar-reporte",
+    path: "/consultar-reporte",
     icon: "/icons/consultar_reporte_icon.svg",
   },
   {
