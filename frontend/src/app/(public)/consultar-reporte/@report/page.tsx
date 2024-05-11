@@ -35,10 +35,16 @@ export default async function Report({
             <h1 className="text-orange-950 md:text-[2rem] text-[1.5rem] font-bold text-opacity-90">Reportes</h1>
           </div>
 
-          <Suspense fallback={"loading..."}>
+          <Suspense
+            fallback={
+              <div className="text-center">
+                <p className="text-green-500 text-[3rem] loading loading-spinner loading-lg "></p>
+              </div>
+            }
+          >
             <TableReport reports={data} />
+            <ReportPagination page={reportPage} />
           </Suspense>
-          <ReportPagination page={reportPage} />
         </>
       )}
     </div>

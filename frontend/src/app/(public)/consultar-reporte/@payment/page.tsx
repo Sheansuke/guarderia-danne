@@ -23,11 +23,9 @@ export default async function Payment({
     },
   });
 
-
   if (data == null) {
     return <p className="text-error text-center text-[2rem]">{error?.message}</p>;
   }
-
 
   return (
     <div className="container">
@@ -37,10 +35,16 @@ export default async function Payment({
             <h1 className="text-orange-950 md:text-[2rem] text-[1.5rem] font-bold text-opacity-90">Pagos</h1>
           </div>
 
-          <Suspense fallback={"loading..."}>
+          <Suspense
+            fallback={
+              <div className="text-center">
+                <p className="text-green-500 text-[3rem] loading loading-spinner loading-lg "></p>
+              </div>
+            }
+          >
             <TablePayment payments={data} />
+            <PaymentPagination page={paymentPage} />
           </Suspense>
-          <PaymentPagination page={paymentPage} />
 
           <h1 className="text-orange-950 md:text-[2rem] text-[1.5rem] font-bold text-opacity-90 p-16">{""}</h1>
         </>

@@ -18,7 +18,7 @@ export const SearchForm = () => {
 
     const params = new URLSearchParams(searchParams);
     if (search !== "") {
-      params.set("parentCode", search);
+      params.set("parentCode", search.trim());
     } else {
       params.delete("parentCode");
     }
