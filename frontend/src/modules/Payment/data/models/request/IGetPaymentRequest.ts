@@ -1,6 +1,6 @@
 export interface IGetPaymentRequest {
     code: string;
-    childEndpoint: string;
+    paymentEndpoint: string;
     pagination: {
         page: number;
         limit: number;

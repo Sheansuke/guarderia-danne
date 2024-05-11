@@ -1,6 +1,6 @@
 export interface IGetReportRequest {
     code: string;
-    childEndpoint: string;
+    reportEndpoint: string;
     pagination: {
       page: number;
       limit: number;

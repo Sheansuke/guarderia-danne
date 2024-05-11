@@ -3,4 +3,6 @@ export interface IPaymentModel {
     status: 'PAGADO' | 'PENDIENTE' | 'ANULADO';
     amount: string;
     payment_concept?: string;
+    _createdAt: string,
+    _updatedAt: string,
 }

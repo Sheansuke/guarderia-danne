@@ -8,4 +8,5 @@ export interface IReportResponseModel {
   extra_comment_bathroom?: string;
   needs: string[];
   extra_comment_needs?: string;
+  _createdAt: string
 }

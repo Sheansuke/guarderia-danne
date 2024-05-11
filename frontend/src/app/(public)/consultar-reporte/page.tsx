@@ -1,6 +1,5 @@
 import { ParentInfo } from "@/app/(public)/consultar-reporte/components/ParentInfo";
 import { SearchForm } from "@/app/(public)/consultar-reporte/components/SearchForm";
-import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
 export default async function ConsultarReporte({
@@ -31,7 +30,7 @@ export default async function ConsultarReporte({
           >
             <ParentInfo parentCode={parentCode} />
           </Suspense>
-        )}{" "}
+        )}
       </div>
     </>
   );

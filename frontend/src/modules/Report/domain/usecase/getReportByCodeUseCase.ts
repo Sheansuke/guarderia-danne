@@ -5,6 +5,7 @@ import type { IReportServiceResponse } from "@modules/Report/config/IReportServi
 import type { IGetReportRequest } from "@modules/Report/data/models/request/IGetReportRequest";
 import { ReportRepository } from "@modules/Report/data/repository/ChildRepository";
 import type { ReportModel } from "@modules/Report/domain/models/ReportModel";
+import { cookies } from "next/headers";
 
  
 export const getReportByCodeUseCase = async (getReportRequest: IGetReportRequest): Promise<IReportServiceResponse<ReportModel[]>> => {

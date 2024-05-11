@@ -1,15 +1,14 @@
-import { REPORT_ENDPOINTS } from "@modules/Report/config/ReportEndpoints";
 import type { IGetReportRequest } from "@modules/Report/data/models/request/IGetReportRequest";
 import type { IReportResponseModel } from "@modules/Report/data/models/response/IReportResponseModel";
 import { sanityClient } from "@infrastructure/sanity/sanityClient";
 
-export const getReport = async ({ code, childEndpoint, pagination }: IGetReportRequest): Promise<IReportResponseModel[]> => {
+export const getReport = async ({ code, reportEndpoint, pagination }: IGetReportRequest): Promise<IReportResponseModel[]> => {
   const startPagination = (pagination.page - 1) * pagination.limit;
-  const finishPagination = startPagination + pagination.limit;
+  const finishPagination = (startPagination + pagination.limit) - 1;
 
   const report = await sanityClient.fetch<
     IReportResponseModel[]
-  >(`*[_type == "${REPORT_ENDPOINTS.REPORT}" && *[_type == "${childEndpoint}" && references(^._id) && parent_consultation_code == "${code}"] != []][${startPagination}...${finishPagination}] {
+  >(`*[_type == "${reportEndpoint}" && report_for->parent_consultation_code == "${code}"][${startPagination}..${finishPagination}] {
     today_i_felt,
     during_work_hours_i_was,
     extra_comment_work_hour,
@@ -18,7 +17,8 @@ export const getReport = async ({ code, childEndpoint, pagination }: IGetReportR
     in_the_bathroom,
     extra_comment_bathroom,
     needs,
-    extra_comment_needs
+    extra_comment_needs,
+    _createdAt
   }`);
 
   return report;

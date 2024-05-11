@@ -12,5 +12,6 @@ export const responseToModel = (response: IReportResponseModel[]): ReportModel[]
         extra_comment_bathroom: item.extra_comment_bathroom,
         needs: item.needs,
         extra_comment_needs: item.extra_comment_needs,
+        _createdAt: item._createdAt
     }));
 }

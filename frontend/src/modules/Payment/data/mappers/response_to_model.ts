@@ -8,5 +8,7 @@ export const responseToModel = (response: IPaymentResponseModel[]): IPaymentMode
     status: item.status,
     amount: item.amount,
     payment_concept: item.payment_concept,
+    _createdAt: item._createdAt,
+    _updatedAt: item._updatedAt
   }));
 };
